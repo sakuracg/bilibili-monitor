@@ -1,0 +1,30 @@
+name: Bilibili Monitor Auto Refresh
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"  # 每 1 分钟运行一次
+  workflow_dispatch:       # 允许手动运行
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API 王欣虎扑
+        uses: wei/curl@master
+        with:
+          args: "https://xiari.pythonanywhere.com/api/check?user=王欣虎扑"
+
+      - name: Call API 王悦虎扑
+        uses: wei/curl@master
+        with:
+          args: "https://xiari.pythonanywhere.com/api/check?user=王悦虎扑"
+
+      - name: Call API 王欣旭宝
+        uses: wei/curl@master
+        with:
+          args: "https://xiari.pythonanywhere.com/api/check?user=王欣旭宝"
+
+      - name: Call API 王悦旭宝
+        uses: wei/curl@master
+        with:
+          args: "https://xiari.pythonanywhere.com/api/check?user=王悦旭宝"

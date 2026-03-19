@@ -1,30 +1,16 @@
-name: Bilibili Monitor Auto Refresh
-
+name: B站监控自动刷新
 on:
   schedule:
-    - cron: "*/1 * * * *"  # 每 1 分钟运行一次
-  workflow_dispatch:       # 允许手动运行
+    - cron: "*/1 * * * *"
+  workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: Call API 王欣虎扑
-        uses: wei/curl@master
-        with:
-          args: "https://xiari.pythonanywhere.com/api/check?user=王欣虎扑"
-
-      - name: Call API 王悦虎扑
-        uses: wei/curl@master
-        with:
-          args: "https://xiari.pythonanywhere.com/api/check?user=王悦虎扑"
-
-      - name: Call API 王欣旭宝
-        uses: wei/curl@master
-        with:
-          args: "https://xiari.pythonanywhere.com/api/check?user=王欣旭宝"
-
-      - name: Call API 王悦旭宝
-        uses: wei/curl@master
-        with:
-          args: "https://xiari.pythonanywhere.com/api/check?user=王悦旭宝"
+      - name: 刷新所有用户
+        run: |
+          curl -s "https://xiari.pythonanywhere.com/api/check?user=王欣虎扑"
+          curl -s "https://xiari.pythonanywhere.com/api/check?user=王悦虎扑"
+          curl -s "https://xiari.pythonanywhere.com/api/check?user=王欣旭宝"
+          curl -s "https://xiari.pythonanywhere.com/api/check?user=王悦旭宝"

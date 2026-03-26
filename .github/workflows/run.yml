@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: 刷新所有用户
         run: |
-          curl -s "https://xiari.pythonanywhere.com/api/check?user=王欣虎扑"
-          curl -s "https://xiari.pythonanywhere.com/api/check?user=王悦虎扑"
-          curl -s "https://xiari.pythonanywhere.com/api/check?user=王欣旭宝"
-          curl -s "https://xiari.pythonanywhere.com/api/check?user=王悦旭宝"
+          curl -s "https://xiari.pythonanywhere.com/api/refresh-all-activities?user=王欣虎扑"
+          curl -s "https://xiari.pythonanywhere.com/api/refresh-all-activities?user=王悦虎扑"
+          curl -s "https://xiari.pythonanywhere.com/api/refresh-all-activities?user=王欣旭宝"
+          curl -s "https://xiari.pythonanywhere.com/api/refresh-all-activities?user=王悦旭宝"
